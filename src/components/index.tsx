@@ -1,5 +1,6 @@
 import React from 'react';
 import {Header, Converter} from './components';
+import {exchangeRateService} from '../services/services'
 // import './app.scss';
 
 function App() {
