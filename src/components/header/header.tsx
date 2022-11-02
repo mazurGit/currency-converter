@@ -1,12 +1,11 @@
 import './styles.scss';
 import {CurrencyRateSegment} from './components/components';
-import {currency} from '../../constants/currency';
+import {currencyHeaderItem} from '../../common/common';
 
 const Header = () => {
   return(
     <header className='header'>
-      {currency.map(item => <CurrencyRateSegment data={item} key={item.name}/>)}
-
+      {currencyHeaderItem.map(item => <CurrencyRateSegment data={item} key={item.name}/>)}
     </header>
   )
 }

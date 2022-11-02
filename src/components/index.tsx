@@ -1,11 +1,12 @@
 import React from 'react';
-import {Header} from './components';
+import {Header, Converter} from './components';
 // import './app.scss';
 
 function App() {
   return (
-    <div className="Currency">
+    <div className="container">
       <Header/>
+      <Converter/>
     </div>
   );
 }

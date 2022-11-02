@@ -1,9 +1,9 @@
-import { images } from "../assets/images/images";
+import { images } from "../../assets/images/images";
 
-const currency = [
+const currencyHeaderItem = [
   {name: 'EUR', imgSrc: images.eur},
   {name: 'USD', imgSrc: images.us},
   {name: 'PLN', imgSrc: images.pln}
 ]
 
-export {currency};
+export {currencyHeaderItem};
