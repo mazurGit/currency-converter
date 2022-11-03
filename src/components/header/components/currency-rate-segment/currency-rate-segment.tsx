@@ -15,7 +15,7 @@ const  CurrencyRateSegment:FC<Props> = ({data}) => {
     <div className='rate-segment'>
       <img src={data.imgSrc} alt='currency country flag' className='rate-segment__img'/>
       <div className='rate-segment__price'>
-        <div>1 {data.cc} / {data.rate.toFixed(1)} UAH</div>
+        <div>1 {data.cc} / {data.rate.toFixed(2)} UAH</div>
       </div>
     </div>
 
