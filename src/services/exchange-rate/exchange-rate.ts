@@ -1,13 +1,13 @@
-import {httpService} from '../services';
-import {url} from '../../common/common';
-import {CurrencyDto} from '../../common/common';
+import { httpService } from '../services'
+import { url } from '../../common/common'
+import { CurrencyDto } from '../../common/common'
 
 class ExchangeRate {
-  private http:typeof httpService = httpService;
+  private http: typeof httpService = httpService
 
-  async getExchangeRate () {
-    return await httpService.load<CurrencyDto[]>(url)
+  async getExchangeRate() {
+    return httpService.load<CurrencyDto[]>(url)
   }
 }
 
-export {ExchangeRate};
+export { ExchangeRate }

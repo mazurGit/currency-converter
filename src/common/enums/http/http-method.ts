@@ -1,5 +1,5 @@
 enum HttpMethod {
-  GET = "GET",
+  GET = 'GET',
 }
 
-export { HttpMethod };
+export { HttpMethod }

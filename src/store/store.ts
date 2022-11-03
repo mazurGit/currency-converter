@@ -1,10 +1,10 @@
-import {CurrencyStore} from './currency-store';
-import { createContext } from "react";
+import { CurrencyStore } from './currency-store'
+import { createContext } from 'react'
 
 const store = {
   currencyStore: new CurrencyStore(),
 }
 
-const StoreContext = createContext(store);
+const StoreContext = createContext(store)
 
-export {StoreContext, store};
+export { StoreContext, store }

@@ -1,5 +1,5 @@
-import { store } from "../../store/store";
+import { store } from '../../store/store'
 
-type Store = typeof store;
+type Store = typeof store
 
-export type { Store };
+export type { Store }

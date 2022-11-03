@@ -2,7 +2,7 @@ enum DataStatus {
   IDLE = 'idle',
   PENDING = 'pending',
   FULFILLED = 'fulfilled',
-  REJECTED = 'rejected'
+  REJECTED = 'rejected',
 }
 
-export {DataStatus};
+export { DataStatus }

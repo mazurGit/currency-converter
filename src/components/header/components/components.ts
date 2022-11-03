@@ -1,1 +1,1 @@
-export {CurrencyRateSegment} from './currency-rate-segment/currency-rate-segment';
+export { CurrencyRateSegment } from './currency-rate-segment/currency-rate-segment'

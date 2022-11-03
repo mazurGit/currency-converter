@@ -7,7 +7,7 @@
   border-radius: 5px;
   border: 1px gray solid;
   padding: 0 5px;
-  label{
+  label {
     position: absolute;
     top: -10px;
     font-size: 12px;
@@ -15,11 +15,11 @@
     background-color: white;
     text-transform: capitalize;
   }
-  input{
-    border:none;
+  input {
+    border: none;
     outline: none;
   }
-  select{
+  select {
     outline: none;
   }
   &__divider {
@@ -32,4 +32,3 @@
     border: none;
   }
 }
-
