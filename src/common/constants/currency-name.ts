@@ -1,8 +1,10 @@
+import { CurrencyName } from "../common";
+
 const currencyName = [
-  {value:'usd', name:'USD'},
-  {value:'eur', name:'EUR'},
-  {value:'pln', name:'PLN'},
-  {value:'uah', name:'UAH'},
+  {value:'usd', name: CurrencyName.USD},
+  {value:'eur', name: CurrencyName.EUR},
+  {value:'pln', name: CurrencyName.PLN},
+  {value:'uah', name: CurrencyName.UAH},
 ]
 
 export {currencyName};

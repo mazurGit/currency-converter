@@ -1,9 +1,13 @@
 import React from 'react';
 import {Header, Converter} from './components';
-import {exchangeRateService} from '../services/services'
-// import './app.scss';
+import {useStore, useEffect} from '../hooks/hooks';
 
-function App() {
+const  App = () => {
+  const {currencyStore:{getCurrenciesData}} = useStore()
+  useEffect(() => {
+    getCurrenciesData()
+  },[])
+
   return (
     <div className="container">
       <Header/>

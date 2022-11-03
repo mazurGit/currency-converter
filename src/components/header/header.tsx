@@ -1,11 +1,22 @@
 import './styles.scss';
 import {CurrencyRateSegment} from './components/components';
-import {currencyHeaderItem} from '../../common/common';
+import {currencyHeaderItem, DataStatus} from '../../common/common';
+import { useStore } from '../../hooks/use-store';
 
 const Header = () => {
+  const{currencyStore:{getRateToHrivna, dataStatus}}  = useStore()
+  const isDataReady = dataStatus === DataStatus.FULFILLED
+
   return(
     <header className='header'>
-      {currencyHeaderItem.map(item => <CurrencyRateSegment data={item} key={item.name}/>)}
+      {isDataReady && currencyHeaderItem.map(({name, imgSrc}) => {
+        const cuurencyInfo = getRateToHrivna(name)
+        if(cuurencyInfo) {
+          const data = {...cuurencyInfo, imgSrc}
+          return <CurrencyRateSegment data={data} key={name}/>
+        }
+        return null
+      })}
     </header>
   )
 }
