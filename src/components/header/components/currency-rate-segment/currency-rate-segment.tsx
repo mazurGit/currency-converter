@@ -1,10 +1,12 @@
 import {FC} from 'react';
 import './styles.scss';
+import {CurrencyDto} from '../../../../common/common'
 
 type Props = {
   data: {
     imgSrc: string,
-    name: string;
+    cc: CurrencyDto['cc'];
+    rate: CurrencyDto['rate'];
   }
 }
 
@@ -13,7 +15,7 @@ const  CurrencyRateSegment:FC<Props> = ({data}) => {
     <div className='rate-segment'>
       <img src={data.imgSrc} alt='currency country flag' className='rate-segment__img'/>
       <div className='rate-segment__price'>
-        <div>1 {data.name} / 40 UAH</div>
+        <div>1 {data.cc} / {data.rate.toFixed(1)} UAH</div>
       </div>
     </div>
 

@@ -1,9 +1,10 @@
 import { images } from "../../assets/images/images";
+import { CurrencyName } from "../common";
 
 const currencyHeaderItem = [
-  {name: 'EUR', imgSrc: images.eur},
-  {name: 'USD', imgSrc: images.us},
-  {name: 'PLN', imgSrc: images.pln}
+  {name: CurrencyName.EUR, imgSrc: images.eur},
+  {name: CurrencyName.USD, imgSrc: images.us},
+  {name: CurrencyName.PLN, imgSrc: images.pln}
 ]
 
 export {currencyHeaderItem};
