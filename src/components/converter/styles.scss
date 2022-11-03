@@ -1,0 +1,25 @@
+.converter {
+  margin-top: 100px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px gray;
+  min-height: 300px;
+  padding: 10px 50px;
+  &__header {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    align-items: center;
+    font-weight: 700;
+    img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+  }
+  &__content {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+  }
+}
