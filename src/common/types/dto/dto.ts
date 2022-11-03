@@ -1,1 +1,1 @@
-export type {CurrencyDto} from './currency-dto';
+export type { CurrencyDto } from './currency-dto'

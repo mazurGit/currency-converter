@@ -1,8 +1,8 @@
 type CurrencyDto = {
-  cc: string;
-  exchangedate: string;
-  rate: number;
-  txt: string;
+  cc: string
+  exchangedate: string
+  rate: number
+  txt: string
 }
 
-export type {CurrencyDto};
+export type { CurrencyDto }

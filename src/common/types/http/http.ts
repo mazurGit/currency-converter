@@ -1,1 +1,1 @@
-export type {HttpOptions} from './http-options';
+export type { HttpOptions } from './http-options'

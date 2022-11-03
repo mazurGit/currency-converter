@@ -1,5 +1,5 @@
 enum HttpHeaders {
-  CONTENT_TYPE = "Content-Type",
+  CONTENT_TYPE = 'Content-Type',
 }
 
-export { HttpHeaders };
+export { HttpHeaders }

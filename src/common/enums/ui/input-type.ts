@@ -3,4 +3,4 @@ enum InputType {
   TO = 'to',
 }
 
-export {InputType};
+export { InputType }

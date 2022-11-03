@@ -5,4 +5,4 @@ enum CurrencyName {
   UAH = 'UAH',
 }
 
-export {CurrencyName};
+export { CurrencyName }
