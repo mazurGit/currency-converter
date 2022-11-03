@@ -7,39 +7,50 @@ class CurrencyStore {
   currencies: CurrencyDto[] = [{
     cc: '',
     exchangedate: '',
-    r030: 0,
     rate: 0,
     txt: '',
   }];
   convertFrom = {
-    value: 0,
-    name: ''
+    value: '',
+    name: CurrencyName.USD
   }
   convertTo = {
-    value: 0,
-    name: ''
+    value: '',
+    name: CurrencyName.UAH
   }
   constructor () {
     this.getCurrenciesData = this.getCurrenciesData.bind(this)
     this.findCurrenciesData = this.findCurrenciesData.bind(this)
     this.onValueChange = this.onValueChange.bind(this)
-    this.getRateToHrivna = this.getRateToHrivna.bind(this)
+    this.getRateToHryvnia = this.getRateToHryvnia.bind(this)
+    this.updateInputData = this.updateInputData.bind(this)
     makeAutoObservable(this)
   }
 
+  updateDataStatus = (dataStatus:DataStatus) =>{
+    this.dataStatus = dataStatus
+  }
+
   getCurrenciesData = async() => {
-    this.dataStatus = DataStatus.PENDING
+    this.updateDataStatus(DataStatus.PENDING)
     try {
-      this.currencies = await exchangeRateService.getExchangeRate()
-      this.dataStatus = DataStatus.FULFILLED
+      let data = await exchangeRateService.getExchangeRate()
+      data.push({
+        cc:CurrencyName.UAH,
+        exchangedate: Date(),
+        rate: 1,
+        txt: 'Українська гривня'
+      })
+      this.currencies = data;
+      this.updateDataStatus(DataStatus.FULFILLED)
     } catch {
-      this.dataStatus = DataStatus.REJECTED
+      this.updateDataStatus( DataStatus.REJECTED)
     }
   }
 
   findCurrenciesData = () => {
-    let convertFromData = this.currencies.find(item => item.txt === this.convertFrom.name)
-    let convertToData = this.currencies.find(item => item.txt === this.convertTo.name)
+    let convertFromData = this.currencies.find(item => item.cc === this.convertFrom.name)
+    let convertToData = this.currencies.find(item => item.cc === this.convertTo.name)
     return {convertFromData, convertToData}
   }
 
@@ -47,14 +58,22 @@ class CurrencyStore {
     const {convertFromData, convertToData} = this.findCurrenciesData()
     if(convertFromData && convertToData){
       if(inputType === InputType.FROM){
-        this.convertTo.value = convertFromData.rate / convertToData.rate
+        this.convertTo.value = (convertFromData.rate / convertToData.rate * Number(this.convertFrom.value)).toFixed(2)
       } else{
-        this.convertTo.value = convertToData.rate / convertFromData.rate
+        this.convertFrom.value =  (convertToData.rate / convertFromData.rate * Number(this.convertTo.value)).toFixed(2)
       }
     }
   }
 
-  getRateToHrivna (currency: CurrencyName) {
+  updateInputData = (inputType:InputType, data: Partial<typeof this.convertFrom>) => {
+    if(inputType === InputType.FROM){
+      this.convertFrom = {...this.convertFrom, ...data}
+    } else {
+      this.convertTo = {...this.convertTo, ...data}
+    }
+  }
+
+  getRateToHryvnia (currency: CurrencyName) {
     return this.currencies.find(item => item.cc === currency)
   }
 }
